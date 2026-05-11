@@ -1,24 +1,48 @@
 stages:
   - build
   - lint
+  - test
+  - deploy
 
+build-job:
+  stage: build
+  tags:
+    - local-runner
+  script:
+    - pip install --upgrade pip
+    - pip install -r requirements.txt
+  artifacts:
+    paths:
+      - dist/
 
+lint-job:
+  stage: lint
+  tags:
+    - local-runner
+  script:
+    - pip install flake8
+    - flake8 src/ tests/
 
-  build-job:
-    stage: build
-    image: python:3.11
-    script:
-      - pip install --upgrade pip
-      - pip install -r requirements.txt
-    cache:
-      paths:
-        - .cache/pip
-        
-  lint-job:
-    stage: lint
-    image: python:3.11
-    script:
-      - pip install flake8 black
-      - flake8 src/ tests/
-      - black --check src/ tests/
+test-job:
+  stage: test
+  tags:
+    - local-runner
+  script:
+    - pip install pytest pytest-cov
+    - pytest tests/ --cov=src --cov-report=xml
+  artifacts:
+    reports:
+      coverage_report:
+        coverage_format: cobertura
+        path: coverage.xml
 
+deploy-local:
+  stage: deploy
+  tags:
+    - local-runner
+  script:
+    - echo "Deploying build output to C drive..."
+    - mkdir -Force "C:/biginar_output"
+    - copy dist/* "C:/biginar_output/"
+  only:
+    - main
