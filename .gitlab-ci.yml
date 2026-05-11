@@ -8,3 +8,11 @@ build-job:
     paths:
       - .cache/pip
       
+lint-job:
+  stage: lint
+  image: python:3.11
+  script:
+    - pip install flake8 black
+    - flake8 src/ tests/
+    - black --check src/ tests/
+
