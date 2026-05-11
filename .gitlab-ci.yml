@@ -18,7 +18,7 @@ build-job:
 lint-job:
   stage: lint
   tags:
-    - local-runner
+    - Gitlab-runner
   script:
     - pip install flake8
     - flake8 src/ tests/
@@ -26,7 +26,7 @@ lint-job:
 test-job:
   stage: test
   tags:
-    - local-runner
+    - Gitlab-runner
   script:
     - pip install pytest pytest-cov
     - pytest tests/ --cov=src --cov-report=xml
@@ -39,7 +39,7 @@ test-job:
 deploy-local:
   stage: deploy
   tags:
-    - local-runner
+    - Gitlab-runner
   script:
     - echo "Deploying build output to C drive..."
     - mkdir -Force "C:/biginar_output"
