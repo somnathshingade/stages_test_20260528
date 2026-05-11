@@ -1,0 +1,9 @@
+build-job:
+  stage: build
+  image: python:3.11
+  script:
+    - pip install --upgrade pip
+    - pip install -r requirements.txt
+  cache:
+    paths:
+      - .cache/pip
