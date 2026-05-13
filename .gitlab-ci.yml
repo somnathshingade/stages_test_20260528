@@ -4,7 +4,7 @@ deploy-local:
     - local-runner
   script:
     - echo "Deploying build output to C drive..."
-    - powershell -Command "mkdir -Force 'C:/biginar_output'"
-    - powershell -Command "Copy-Item -Path dist/* -Destination 'C:/biginar_output/' -Force"
+    - pwsh "mkdir -Force 'C:/biginar_output'"
+    - pwsh "Copy -Path dist/* -Destination 'C:/biginar_output/' -Force"
   only:
     - main
