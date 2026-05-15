@@ -9,12 +9,16 @@ variables:
   NODE_ENV: "development"
   APP_VERSION: "1.0.0"
 
+include:
+  - local: "pipeline_stages_20251231/test-job.yml"
+
 build_job:
   stage: build
   image: maven:3.9
   variables:
     NODE_ENV: "production"
     APP_VERSION: "2.0.0"
+
   script:
     - echo "Building the project... $NODE_ENV & $APP_VERSION"
     - ls -la
@@ -54,8 +58,11 @@ build_job2:
 
     # Add your build commands here
 
-include:
-  - local: "/pipeline_stages_20251231/test-job.yml"
+test_job:
+  stage: test
+  script:
+    - echo "Running test job..."
+    - ls -la
 
 deploy_job:
   stage: deploy
