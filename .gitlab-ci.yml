@@ -28,6 +28,14 @@ test_job:
     - ls -la
     # Add your test commands here
 
+
+deploy_job:
+  stage: deploy
+  script:
+    - echo "Deploying the application... $NODE_ENV & $APP_VERSION"
+    - ls -la
+    # Add your deploy commands here
+
 build_job1:
   stage: build
   when: manual
@@ -52,10 +60,3 @@ build_job2:
     - echo "Building the project... $NODE_ENV & $APP_VERSION"
     - ls -la
     # Add your build commands here
-
-deploy_job:
-  stage: deploy
-  script:
-    - echo "Deploying the application... $NODE_ENV & $APP_VERSION"
-    - ls -la
-    # Add your deploy commands here
