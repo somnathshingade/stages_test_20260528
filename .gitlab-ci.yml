@@ -27,6 +27,9 @@ build_job1:
   variables:
     NODE_ENV: "production"
     APP_VERSION: "2.0.0"
+  
+  before_script:
+    - echo "Preparing environment..."
   script:
     - echo "Building the project... $NODE_ENV & $APP_VERSION"
     - ls -la
@@ -42,6 +45,10 @@ build_job2:
   script:
     - echo "Building the project... $NODE_ENV & $APP_VERSION"
     - ls -la
+    
+  after_script:
+    - echo "Cleaning up..."
+
     # Add your build commands here
 
 test_job:
