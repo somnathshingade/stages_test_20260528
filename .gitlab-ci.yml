@@ -39,7 +39,6 @@ deploy_job:
 build_job1:
   stage: build
   when: manual
-  needs: ["deploy_job"]
   image: maven:3.9
   variables:
     NODE_ENV: "production"
