@@ -1,10 +1,4 @@
-deploy-local:
-  stage: deploy
-  tags:
-    - local-runner
-  script:
-    - echo "Deploying build output to C drive..."
-    - pwsh "mkdir -Force 'C:/biginar_output'"
-    - pwsh "Copy -Path dist/* -Destination 'C:/biginar_output/' -Force"
-  only:
-    - main
+stages:
+  - build
+  - test
+  - deploy
