@@ -4,11 +4,16 @@ stages:
   - build
   - test
   - deploy
+
+  variables:
+  NODE_ENV: "development"
+  APP_VERSION: "1.0.0"
+
 build job:
   image: maven:3.9
   stage: build
   script:
-    - echo "Building the project..."
+    - echo "Building the project... $NODE_ENV & $APP_VERSION"
     - ls -la
     # Add your build commands here
 
@@ -16,13 +21,13 @@ test job:
   image: python:3.12
   stage: test
   script:
-    - echo "Running tests..."
+    - echo "Running tests... $NODE_ENV & $APP_VERSION"
     - ls -la
     # Add your test commands here
 
 deploy job:
   stage: deploy
   script:
-    - echo "Deploying the application..."
+    - echo "Deploying the application...$NODE_ENV & $APP_VERSION"
     - ls -la
      # Add your deploy commands here
