@@ -30,8 +30,9 @@ test_job:
 
 build_job1:
   stage: build
-  image: maven:3.9
   when: manual
+  needs: ["deploy_job"]
+  image: maven:3.9
   variables:
     NODE_ENV: "production"
     APP_VERSION: "2.0.0"
@@ -42,8 +43,8 @@ build_job1:
 
 build_job2:
   stage: build
-  image: maven:3.9
   needs: ["build_job1"]
+  image: maven:3.9
   variables:
     NODE_ENV: "production"
     APP_VERSION: "2.0.0"
