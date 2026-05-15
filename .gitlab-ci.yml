@@ -43,7 +43,7 @@ build_job1:
 build_job2:
   stage: build
   image: maven:3.9
-  needs: ["deploy_job"]
+  needs: ["build_job1"]
   variables:
     NODE_ENV: "production"
     APP_VERSION: "2.0.0"
