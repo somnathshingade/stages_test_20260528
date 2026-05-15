@@ -40,6 +40,18 @@ build_job1:
     - ls -la
     # Add your build commands here
 
+build_job2:
+  stage: build
+  image: maven:3.9
+  needs: ["deploy_job"]
+  variables:
+    NODE_ENV: "production"
+    APP_VERSION: "2.0.0"
+  script:
+    - echo "Building the project... $NODE_ENV & $APP_VERSION"
+    - ls -la
+    # Add your build commands here
+
 deploy_job:
   stage: deploy
   script:
