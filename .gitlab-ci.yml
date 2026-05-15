@@ -5,6 +5,7 @@ stages:
   - test
   - deploy
 build job:
+  image: maven:3.9
   stage: build
   script:
     - echo "Building the project..."
@@ -12,15 +13,16 @@ build job:
     # Add your build commands here
 
 test job:
-    stage: test
-    script:
+  image: python:3.12
+  stage: test
+  script:
     - echo "Running tests..."
     - ls -la
     # Add your test commands here
 
 deploy job:
-    stage: deploy
-    script:
+  stage: deploy
+  script:
     - echo "Deploying the application..."
     - ls -la
      # Add your deploy commands here
