@@ -11,6 +11,9 @@ variables:
 
 build_job:
   image: maven:3.9
+  variables:
+    NODE_ENV: "production"
+    APP_VERSION: "2.0.0"
   stage: build
   script:
     - echo "Building the project... $NODE_ENV & $APP_VERSION"
