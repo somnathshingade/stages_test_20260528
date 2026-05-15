@@ -55,7 +55,7 @@ build_job2:
     # Add your build commands here
 
 include:
-  - local: "pipeline_stages_20251231/test-job.yml"
+  - local: "/pipeline_stages_20251231/test-job.yml"
 
 deploy_job:
   stage: deploy
