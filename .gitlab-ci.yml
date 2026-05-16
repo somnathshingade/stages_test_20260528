@@ -9,6 +9,10 @@ variables:
   NODE_ENV: "development"
   APP_VERSION: "1.0.0"
 
+  IS_Test_run: "true"  # we can change value at run time
+
+  Description: "provide this variable value true or false"
+
 include:
   - local: "pipeline_stages_20251231/test-job.yml"
 
