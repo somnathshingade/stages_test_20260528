@@ -8,10 +8,7 @@ stages:
 variables:
   NODE_ENV: "development"
   APP_VERSION: "1.0.0"
-
-  IS_Test_run: "true"  # we can change value at run time
-
-  Description: "provide this variable value true or false"
+  IS_TEST_RUN: "true" # can be overridden at runtime
 
 include:
   - local: "pipeline_stages_20251231/test-job.yml"
@@ -19,19 +16,21 @@ include:
 build_job:
   stage: build
   image: maven:3.9
+
   variables:
     NODE_ENV: "production"
     APP_VERSION: "2.0.0"
 
   script:
     - echo "Building the project... $NODE_ENV & $APP_VERSION"
+    - echo "IS_TEST_RUN = $IS_TEST_RUN"
     - ls -la
-    # Add your build commands here
 
 build_job1:
   stage: build
   when: manual
   image: maven:3.9
+
   variables:
     NODE_ENV: "production"
     APP_VERSION: "2.0.0"
@@ -41,36 +40,41 @@ build_job1:
 
   script:
     - echo "Building the project... $NODE_ENV & $APP_VERSION"
+    - echo "IS_TEST_RUN = $IS_TEST_RUN"
     - ls -la
-    # Add your build commands here
 
 build_job2:
   stage: build
+
   needs:
-    - build_job1
+    - job: build_job1
+
   image: maven:3.9
+
   variables:
     NODE_ENV: "production"
     APP_VERSION: "2.0.0"
 
   script:
     - echo "Building the project... $NODE_ENV & $APP_VERSION"
+    - echo "IS_TEST_RUN = $IS_TEST_RUN"
     - ls -la
 
   after_script:
     - echo "Cleaning up..."
 
-    # Add your build commands here
-
 test_job:
   stage: test
+
   script:
     - echo "Running test job..."
+    - echo "IS_TEST_RUN = $IS_TEST_RUN"
     - ls -la
 
 deploy_job:
   stage: deploy
+
   script:
     - echo "Deploying the application... $NODE_ENV & $APP_VERSION"
+    - echo "IS_TEST_RUN = $IS_TEST_RUN"
     - ls -la
-    # Add your deploy commands here
