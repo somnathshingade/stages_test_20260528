@@ -60,7 +60,7 @@ test_job:
 deploy_job:
   stage: deploy
   script:
-    -|
-      echo "Deploying the application... $NODE_ENV & $APP_VERSION"
-      echo "IS_TEST_RUN = $IS_TEST_RUN"
-      ls -la
+    - |
+        echo "Deploying the application... $NODE_ENV & $APP_VERSION"
+        echo "IS_TEST_RUN = $IS_TEST_RUN"
+        ls -la
