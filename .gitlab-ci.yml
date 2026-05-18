@@ -10,15 +10,12 @@ variables:
   APP_VERSION: "1.0.0"
   IS_TEST_RUN: "true" # can be overridden at runtime
 
-
 build_job:
   stage: build
   image: maven:3.9
-
   variables:
     NODE_ENV: "production"
     APP_VERSION: "2.0.0"
-
   script:
     - echo "Building the project... $NODE_ENV & $APP_VERSION"
     - echo "IS_TEST_RUN = $IS_TEST_RUN"
@@ -28,14 +25,11 @@ build_job1:
   stage: build
   when: manual
   image: maven:3.9
-
   variables:
     NODE_ENV: "production"
     APP_VERSION: "2.0.0"
-
   before_script:
     - echo "Preparing environment..."
-
   script:
     - echo "Building the project... $NODE_ENV & $APP_VERSION"
     - echo "IS_TEST_RUN = $IS_TEST_RUN"
@@ -43,27 +37,21 @@ build_job1:
 
 build_job2:
   stage: build
-
   needs:
     - job: build_job1
-
   image: maven:3.9
-
   variables:
     NODE_ENV: "production"
     APP_VERSION: "2.0.0"
-
   script:
     - echo "Building the project... $NODE_ENV & $APP_VERSION"
     - echo "IS_TEST_RUN = $IS_TEST_RUN"
     - ls -la
-
   after_script:
     - echo "Cleaning up..."
 
 test_job:
   stage: test
-
   script:
     - echo "Running test job..."
     - echo "IS_TEST_RUN = $IS_TEST_RUN"
@@ -71,8 +59,8 @@ test_job:
 
 deploy_job:
   stage: deploy
-
   script:
-    - echo "Deploying the application... $NODE_ENV & $APP_VERSION"
-    - echo "IS_TEST_RUN = $IS_TEST_RUN"
-    - ls -la
+    -|
+      echo "Deploying the application... $NODE_ENV & $APP_VERSION"
+      echo "IS_TEST_RUN = $IS_TEST_RUN"
+      ls -la
