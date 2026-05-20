@@ -16,3 +16,8 @@ include:
       - 'build-job.yml'
       - 'test-job.yml'
       - 'deploy-job.yml'
+
+  - local: test-job.yml
+    rules:
+      - if: $DONT_INCLUDE_TESTS == "true"
+        when: never
