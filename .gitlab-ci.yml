@@ -1,10 +1,10 @@
 
 include:
-  - project: '/Somnath/templates'
+  - project: "in/it/plm/eplan/somnath/templates"
     file:
-      - 'build-job.yml'
-      - 'test-job.yml'
-      - 'deploy-job.yml'
+      - '/build-job.yml'
+      - '/test-job.yml'
+      - '/deploy-job.yml'
 
 stages:
   - build
