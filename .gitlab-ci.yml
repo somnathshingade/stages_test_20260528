@@ -11,7 +11,7 @@ variables:
   IS_TEST_RUN: "true" # can be overridden at runtime
 
 include:
-  - project: 'Somnath/templates'
+  - project: '/Somnath/templates'
     file:
       - 'build-job.yml'
       - 'test-job.yml'
