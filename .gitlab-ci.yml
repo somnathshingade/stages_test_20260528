@@ -1,12 +1,17 @@
+image: alpine:latest
 
+stages:
+  - build
+  - test
+  - deploy
+
+variables:
+  NODE_ENV: "development"
+  APP_VERSION: "1.0.0"
+  IS_TEST_RUN: "true" # can be overridden at runtime
 include:
   - project: "in/it/plm/eplan/somnath/templates"
     file:
       - '/build-job.yml'
       - '/test-job.yml'
       - '/deploy-job.yml'
-
-stages:
-  - build
-  - test
-  - deploy
