@@ -12,7 +12,7 @@ variables:
 
 include:
   - project: 'Somnath/templates'
-    file: 
-       - 'Somnath/templates/ build-job.yml'
-       - ‘Somnath/templates/ test-job.yml
-       - ‘Somnath/templates/ deploy-job.yml
+    file:
+      - 'Somnath/templates/build-job.yml'
+      - 'Somnath/templates/test-job.yml'
+      - 'Somnath/templates/deploy-job.yml'
