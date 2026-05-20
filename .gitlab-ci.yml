@@ -20,4 +20,4 @@ include:
   - local: test-job.yml
     rules:
       - if: $DONT_INCLUDE_TESTS == "true"
-        when: never
+        when: always
