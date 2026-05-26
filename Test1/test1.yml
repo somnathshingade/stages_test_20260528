@@ -1,0 +1,9 @@
+test_job1:
+  stage: test
+  script:
+    - |
+        echo "============================================"
+        echo "Running test job..."
+        echo "IS_TEST_RUN = $IS_TEST_RUN"
+        echo "============================================"
+        ls -la

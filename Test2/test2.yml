@@ -1,0 +1,9 @@
+deploy_job1:
+  stage: deploy
+  script:
+    - |
+        echo "=========================================================="
+        echo "Deploying the application... $NODE_ENV & $APP_VERSION"
+        echo "IS_TEST_RUN = $IS_TEST_RUN"
+        echo "=========================================================="
+        ls -la
