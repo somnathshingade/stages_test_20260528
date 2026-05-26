@@ -28,6 +28,5 @@ include:
 
         when: never
 
-  - local: 
-    - "Test1/test1.yml"
-    - "Test2/test2.yml"
+  - local: "Test1/test1.yml"
+  - local: "Test2/test2.yml"
