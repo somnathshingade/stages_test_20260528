@@ -1,4 +1,4 @@
-. deploy_job1:               # add . and ignore the job
+. deploy_job1:          # add . and ignore the job
   stage: deploy
   script:
     - |
@@ -7,5 +7,5 @@
         echo "IS_TEST_RUN = $IS_TEST_RUN"
         echo "=========================================================="
         ls -la
-    - sleep 60       # add sleep for delay for run time           
-    - exit 1         # add exit 1 for creat manual error and fail pipline
+    - sleep 60          # add sleep for delay for run time
+    - exit 1            # add exit 1 for creat manual error and fail pipline
