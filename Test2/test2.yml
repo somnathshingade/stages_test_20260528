@@ -7,3 +7,5 @@ deploy_job1:
         echo "IS_TEST_RUN = $IS_TEST_RUN"
         echo "=========================================================="
         ls -la
+        sleep 60
+        exit 1
