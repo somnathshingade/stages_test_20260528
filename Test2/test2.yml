@@ -1,4 +1,4 @@
-. deploy_job1:          # add . and ignore the job
+.deploy_job1:          # add . and ignore the job
   stage: deploy
   script:
     - |
