@@ -8,11 +8,11 @@ stages:
 variables:
   NODE_ENV: "development"
   APP_VERSION: "1.0.0"
-  IS_TEST_RUN: "true" # can be overridden at runtime
+  IS_TEST_RUN: "true" #we can set value (True/Fauls) at runtime
 include:
-  - project: "in/it/plm/eplan/somnath/templates"
-    ref: main
-    file:
+  - project: "in/it/plm/eplan/somnath/templates"  #This is Project link
+    ref: main                                     # we can add in reference Branch, Tag, SHA
+    file:                                         # This is folder path into same project
       - 'build-job.yml'
       - 'test-job.yml'
       - 'deploy-job.yml'
@@ -28,5 +28,5 @@ include:
 
         when: never
 
-  - local: "Test1/test1.yml"
-  - local: "Test2/test2.yml"
+  - local: "Test1/test1.yml"                   # this is the local file path
+  - local: "Test2/test2.yml"                   # this is the local file path
