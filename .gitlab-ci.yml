@@ -25,4 +25,9 @@ include:
   - local: test-job.yml
     rules:
       - if: $DONT_INCLUDE_TESTS == "true"
+
         when: never
+
+  - local: 
+    - "Test1/test1.yml"
+    - "Test2/test2.yml"
