@@ -1,4 +1,4 @@
-deploy_job1:
+.deploy_job1:
   stage: deploy
   script:
     - |
