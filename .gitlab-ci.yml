@@ -8,7 +8,7 @@ stages:
 variables:
   NODE_ENV: "development"
   APP_VERSION: "1.0.0"
-  IS_TEST_RUN: "true" #we can set value (True/Fauls) at runtime
+  IS_TEST_RUN: "true"                             #we can set value (True/Fauls) at runtime
 include:
   - project: "in/it/plm/eplan/somnath/templates"  #This is Project link
     ref: Test                                     # we can add in reference Branch, Tag, SHA
@@ -28,21 +28,21 @@ include:
 
         when: never
 
-  - local: "Test1/test1.yml"                   # this is the local file path
-  - local: "Test2/test2.yml"                   # this is the local file path
+  - local: "Test1/test1.yml"                      # this is the local file path
+  - local: "Test2/test2.yml"                      # this is the local file path
 
 deploy_job:
 
-  before_script:
+  before_script:                                  #add before script for include function 
     - |
       echo "==========================================="
       echo "This is before script for deploy job"
       echo "==========================================="
 
-  after_script:
+  after_script:                                    #add after script for include function 
     - |
       echo "==========================================="
       echo "This is after script for deploy job"
       echo "==========================================="
-  needs:
+  needs:                                              #add needs dependance for deploy_job in include function 
     - job: build_job2
