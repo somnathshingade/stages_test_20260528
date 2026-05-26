@@ -30,3 +30,19 @@ include:
 
   - local: "Test1/test1.yml"                   # this is the local file path
   - local: "Test2/test2.yml"                   # this is the local file path
+
+deploy_job:
+
+  before_script:
+    - |
+      echo "==========================================="
+      echo "This is before script for deploy job"
+      echo "==========================================="
+
+  after_script:
+    - |
+      echo "==========================================="
+      echo "This is after script for deploy job"
+      echo "==========================================="
+  needs:
+    - job: build_job2
