@@ -30,3 +30,4 @@ include:
 
   - local: "Test1/test1.yml"                   # this is the local file path
   - local: "Test2/test2.yml"                   # this is the local file path
+  - template: Auto-DevOps.gitlab-ci.yml
