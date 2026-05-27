@@ -11,14 +11,14 @@ build_job:
       echo"==========================="
       echo "Hello from build_job"
       echo"==========================="
-build_job1:
+.build_job1:
   stage: build          
   script:
     - |
       echo"==========================="
       echo "Hello from build_job1"
       echo"==========================="
-build_job2:
+.build_job2:
   stage: build
   script:
     - |
