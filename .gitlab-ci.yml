@@ -1,6 +1,6 @@
 build_job:
-  stage: build
-  script:
-    - echo"==========================="
-    - echo "Hello from build_job"
-    - echo"==========================="
+   stage: build
+   script:
+     - echo"==========================="
+     - echo "Hello from build_job"
+     - echo"==========================="
