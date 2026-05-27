@@ -1,6 +1,41 @@
+stages:
+  - build
+  - test
+  - deploy
+
 build_job:
-   stage: build
-   script:
-     - echo"==========================="
-     - echo "Hello from build_job"
-     - echo"==========================="
+  stage: build
+  script:
+    - |
+      echo "==========================="
+      echo "Hello from build_job"
+      echo "==========================="
+      
+build_job1:
+  stage: build          
+  script:
+    - |
+      echo "==========================="
+      echo "Hello from build_job1"
+      echo "==========================="
+
+build_job2:
+  stage: build
+  script:
+    - |
+      echo "==========================="
+      echo "Hello from build_job2"
+      echo "==========================="
+
+test_job:
+  stage: test
+  script:
+    - |
+      echo "==========================="
+      echo "Hello from test_job"
+      echo "==========================="
+
+.deploy_job:
+  stage: deploy
+  trigger:
+    - local: deploypipeline.yml
