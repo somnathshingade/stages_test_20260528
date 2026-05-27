@@ -35,7 +35,7 @@ test_job:
       echo "Hello from test_job"
       echo "==========================="
 
-.deploy_job:
+deploy_job:
   stage: deploy
   trigger:
     - local: deploypipeline.yml
