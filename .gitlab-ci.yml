@@ -6,8 +6,7 @@ stages:
 build_job:
   stage: build
   script:
-    - | 
-    
+    - |
        echo "==========================="
        echo "Hello from build_job"
        echo "==========================="
@@ -40,3 +39,9 @@ test_job:
   stage: deploy
   trigger:
     - local: deploypipeline.yml
+  strategy: depend
+  forward:
+    yamal_variables: true
+    pipline_variables: true
+  variables:
+    ENV_HOSTNAME: "dev.devopswithprashant.com"
