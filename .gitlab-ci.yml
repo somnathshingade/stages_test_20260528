@@ -38,8 +38,8 @@ test_job:
 DEV-ENV-deploy:
   stage: deploy
   trigger:
-    include:
-      - local: deploypipeline.yml
+    project: in/it/plm/eplan/somnath/templates/-/blob
+    branch: templates_Downstream
     strategy: depend
     forward:
       yaml_variables: true
@@ -50,8 +50,8 @@ DEV-ENV-deploy:
 QA-ENV-deploy:
   stage: deploy
   trigger:
-    include:
-      - local: deploypipeline.yml
+    project: in/it/plm/eplan/somnath/templates/-/blob
+    branch: templates_Downstream
     strategy: depend
     forward:
       yaml_variables: true
@@ -62,8 +62,8 @@ QA-ENV-deploy:
 PROD-ENV-deploy:
   stage: deploy
   trigger:
-    include:
-      - local: deploypipeline.yml
+    project: in/it/plm/eplan/somnath/templates/-/blob
+    branch: templates_Downstream
     strategy: depend
     forward:
       yaml_variables: true
@@ -74,8 +74,8 @@ PROD-ENV-deploy:
 STAGE-ENV-deploy:
   stage: deploy
   trigger:
-    include:
-      - local: deploypipeline.yml
+    project: in/it/plm/eplan/somnath/templates/-/blob
+    branch: templates_Downstream
     strategy: depend
     forward:
       yaml_variables: true
