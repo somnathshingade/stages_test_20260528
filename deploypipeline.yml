@@ -1,0 +1,38 @@
+stages:
+    - predeploy
+    - deploy
+    - postdeploy
+
+StopApp:
+    stage: predeploy
+    script:
+        - |
+           echo "script section for stop application"
+           echo "ENV_HOSTNAME: $ENV_HOSTNAME"
+
+App Deploy:
+    stage: deploy
+    script: 
+        - |
+           echo "script section for application deploy"
+
+DB Deploy:
+    stage: deploy
+    script: 
+        - |
+           echo "script section for database deployment"
+
+1-StartApp:
+    stage: postdeploy
+    script:
+        - |
+           echo "script section for start application"
+
+2-HealthCheck:
+    stage: postdeploy
+    script:
+        - |
+           echo "script section for application helth check"
+
+    needs:
+        - job: 1-StartApp
