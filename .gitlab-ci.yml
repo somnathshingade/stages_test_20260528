@@ -1,3 +1,6 @@
+#Project: in/it/plm/eplan/somnath/templates
+#Branch: templates_Downstream
+
 variables:
   VERSION:
     value: "15.0.0-SNAPSHOT"
