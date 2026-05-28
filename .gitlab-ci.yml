@@ -1,5 +1,5 @@
-#Project: in/it/plm/eplan/somnath/templates
-#Branch: templates_Downstream
+#Project: in/it/plm/eplan/somnath/stages_test
+#Branch: B_Downstream
 
 variables:
   VERSION:
